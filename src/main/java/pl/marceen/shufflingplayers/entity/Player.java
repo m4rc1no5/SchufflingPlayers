@@ -11,11 +11,15 @@ public class Player {
     private String name;
     private List<Fixture> homeFixtures;
     private List<Fixture> awayFixtures;
+    private List<Player> homeOpponentList;
+    private List<Player> awayOpponentList;
 
     public Player(String name) {
         this.name = name;
         homeFixtures = new ArrayList<>();
         awayFixtures = new ArrayList<>();
+        homeOpponentList = new ArrayList<>();
+        awayOpponentList = new ArrayList<>();
     }
 
     public void addHomeFixture(Fixture fixture) {
@@ -24,6 +28,14 @@ public class Player {
 
     public void addAwayFixture(Fixture fixture) {
         awayFixtures.add(fixture);
+    }
+
+    public void addHomeOpponent(Player player) {
+        homeOpponentList.add(player);
+    }
+
+    public void addAwayOpponent(Player player) {
+        awayOpponentList.add(player);
     }
 
     public String getName() {
@@ -43,20 +55,12 @@ public class Player {
         return awayFixtures;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Player player = (Player) o;
-        return Objects.equals(name, player.name) &&
-                Objects.equals(homeFixtures, player.homeFixtures) &&
-                Objects.equals(awayFixtures, player.awayFixtures);
+    public List<Player> getHomeOpponentList() {
+        return homeOpponentList;
     }
 
-    @Override
-    public int hashCode() {
-
-        return Objects.hash(name, homeFixtures, awayFixtures);
+    public List<Player> getAwayOpponentList() {
+        return awayOpponentList;
     }
 
     @Override
@@ -65,7 +69,10 @@ public class Player {
         sb.append("name='").append(name).append('\'');
         sb.append(", homeFixtures=").append(homeFixtures.size());
         sb.append(", awayFixtures=").append(awayFixtures.size());
+        sb.append(", homeOpponentList=").append(homeOpponentList.size());
+        sb.append(", awayOpponentList=").append(awayOpponentList.size());
         sb.append('}');
+        sb.append(super.toString());
         return sb.toString();
     }
 }

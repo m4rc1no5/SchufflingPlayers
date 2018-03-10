@@ -22,10 +22,10 @@ public class FixturesBuilderTest {
     @Test
     public void build() throws Exception {
         //given
-        List<String> players = new ArrayList<>(Arrays.asList("Bruce Lee", "Alan Wilder", "David Bowie", "Michale Jackson"));
+        List<String> players = new ArrayList<>(Arrays.asList("Bruce Lee", "Alan Wilder", "David Bowie", "Michale Jackson", "Bruce Willis"));
 
         //when
-        List<Fixture> fixtures = sut.build(players, 2);
+        List<Fixture> fixtures = sut.build(players);
 
         //then
         System.out.println(fixtures);

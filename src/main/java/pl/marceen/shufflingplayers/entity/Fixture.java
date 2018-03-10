@@ -1,52 +1,33 @@
 package pl.marceen.shufflingplayers.entity;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * @author Marcin Zaremba
  */
 public class Fixture {
     private int number;
-    private Player homePlayer;
-    private Player awayPlayer;
+    private List<Pair> pairList;
 
-    public Fixture(int number, Player homePlayer, Player awayPlayer) {
+    public Fixture(int number) {
         this.number = number;
-        this.homePlayer = homePlayer;
-        this.awayPlayer = awayPlayer;
+        pairList = new ArrayList<>();
     }
 
-    public int getNumber() {
-        return number;
+    public void addPair(Pair pair) {
+        pairList.add(pair);
     }
 
-    public Fixture setNumber(int number) {
-        this.number = number;
-        return this;
-    }
-
-    public Player getHomePlayer() {
-        return homePlayer;
-    }
-
-    public Fixture setHomePlayer(Player homePlayer) {
-        this.homePlayer = homePlayer;
-        return this;
-    }
-
-    public Player getAwayPlayer() {
-        return awayPlayer;
-    }
-
-    public Fixture setAwayPlayer(Player awayPlayer) {
-        this.awayPlayer = awayPlayer;
-        return this;
+    public List<Pair> getPairList() {
+        return pairList;
     }
 
     @Override
     public String toString() {
-        final StringBuilder sb = new StringBuilder("Fixtures{");
+        final StringBuilder sb = new StringBuilder("Fixture{");
         sb.append("number=").append(number);
-        sb.append(", homePlayer=").append(homePlayer);
-        sb.append(", awayPlayer=").append(awayPlayer);
+        sb.append(", pairList=").append(pairList);
         sb.append('}');
         return sb.toString();
     }
