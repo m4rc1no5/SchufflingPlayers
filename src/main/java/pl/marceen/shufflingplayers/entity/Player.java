@@ -2,7 +2,6 @@ package pl.marceen.shufflingplayers.entity;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 /**
  * @author Marcin Zaremba
@@ -20,6 +19,10 @@ public class Player {
         awayFixtures = new ArrayList<>();
         homeOpponentList = new ArrayList<>();
         awayOpponentList = new ArrayList<>();
+    }
+
+    public int numberOfMatches() {
+        return homeOpponentList.size() + awayOpponentList.size();
     }
 
     public void addHomeFixture(Fixture fixture) {
@@ -72,7 +75,6 @@ public class Player {
         sb.append(", homeOpponentList=").append(homeOpponentList.size());
         sb.append(", awayOpponentList=").append(awayOpponentList.size());
         sb.append('}');
-        sb.append(super.toString());
         return sb.toString();
     }
 }

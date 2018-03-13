@@ -8,15 +8,18 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 /**
  * @author Marcin Zaremba
  */
-public class FixturesBuilderTest {
-    private FixturesBuilder sut;
+public class FixturesBuilder2Test {
+    private FixturesBuilder2 sut;
+
 
     @Before
-    public void setUp() {
-        sut = new FixturesBuilder();
+    public void setUp() throws Exception {
+        sut = new FixturesBuilder2();
     }
 
     @Test
@@ -25,9 +28,9 @@ public class FixturesBuilderTest {
         List<String> players = new ArrayList<>(Arrays.asList("Bruce Lee", "Alan Wilder", "David Bowie", "Michale Jackson", "Bruce Willis", "jolo"));
 
         //when
-        List<Fixture> fixtures = sut.build(players);
+        List<Fixture> fixtureList = sut.build(players);
 
         //then
-        System.out.println(fixtures);
+
     }
 }
