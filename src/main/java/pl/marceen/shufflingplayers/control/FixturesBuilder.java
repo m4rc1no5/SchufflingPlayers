@@ -54,7 +54,7 @@ public class FixturesBuilder {
 
                 Player homePlayer = playerStream
                         .filter(player -> playersInFixture.stream().map(Player::getName).noneMatch(name -> name.equals(player.getName())))
-                        .min(comparator.thenComparing(Comparator.comparingInt(player -> player.getHomeFixtures().size())))
+                        .min(comparator.thenComparingInt(player -> player.getHomeFixtures().size()))
                         .orElseThrow(() -> new Exception("Cant find home player"));
 
                 Stream<Player> awayPlayerStream = playerList.stream();
@@ -67,7 +67,7 @@ public class FixturesBuilder {
                         .filter(player -> !player.getName().equals(homePlayer.getName()))
                         .filter(player -> player.getAwayOpponentList().stream().map(Player::getName).noneMatch(name -> name.equals(homePlayer.getName())))
                         .filter(player -> player.getHomeOpponentList().stream().map(Player::getName).noneMatch(name -> name.equals(homePlayer.getName())))
-                        .min(comparator.thenComparing(Comparator.comparingInt(player -> player.getAwayFixtures().size())))
+                        .min(comparator.thenComparingInt(player -> player.getAwayFixtures().size()))
                         .orElseThrow(() -> new Exception("Cant find away player"));
 
                 // TODO: 2018-03-10 refaktor

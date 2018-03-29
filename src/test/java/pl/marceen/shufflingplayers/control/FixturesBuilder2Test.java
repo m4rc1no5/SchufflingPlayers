@@ -12,23 +12,24 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 /**
  * @author Marcin Zaremba
+ * // TODO: 2018-03-29 do dopracowania
  */
 public class FixturesBuilder2Test {
+
     private FixturesBuilder2 sut;
 
-
     @Before
-    public void setUp() throws Exception {
+    public void setUp() {
         sut = new FixturesBuilder2();
     }
 
     @Test
     public void build() throws Exception {
         //given
-        List<String> players = new ArrayList<>(Arrays.asList("Bruce Lee", "Alan Wilder", "David Bowie", "Michale Jackson", "Bruce Willis", "jolo"));
+        var players = new ArrayList<>(Arrays.asList("Bruce Lee", "Alan Wilder", "David Bowie", "Michale Jackson", "Bruce Willis"));
 
         //when
-        List<Fixture> fixtureList = sut.build(players);
+        var fixtureList = sut.build(players);
 
         //then
 

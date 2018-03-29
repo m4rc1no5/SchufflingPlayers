@@ -1,6 +1,7 @@
 package pl.marceen.shufflingplayers.control;
 
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import pl.marceen.shufflingplayers.entity.Fixture;
 
@@ -10,7 +11,9 @@ import java.util.List;
 
 /**
  * @author Marcin Zaremba
+ * // TODO: 2018-03-29 do wywalenia
  */
+@Ignore
 public class FixturesBuilderTest {
     private FixturesBuilder sut;
 
