@@ -19,14 +19,14 @@ class MatchCreator {
 
         for (int i = 0; i < MatchCalculator.calcuateNumberOfMatches(playerList.size()); i++) {
             Player homePlayer = playerList.stream()
-                    .min(numberOfMatchesComparator.thenComparing(Comparator.comparingInt(player -> player.getHomeOpponentList().size())))
+                    .min(numberOfMatchesComparator.thenComparingInt(player -> player.getHomeOpponentList().size()))
                     .orElseThrow(() -> new Exception("Cant find home player"));
 
             Player awayPlayer = playerList.stream()
                     .filter(player -> !player.getName().equals(homePlayer.getName()))
                     .filter(player -> player.getAwayOpponentList().stream().map(Player::getName).noneMatch(name -> name.equals(homePlayer.getName())))
                     .filter(player -> player.getHomeOpponentList().stream().map(Player::getName).noneMatch(name -> name.equals(homePlayer.getName())))
-                    .min(numberOfMatchesComparator.thenComparing(Comparator.comparingInt(player -> player.getAwayOpponentList().size())))
+                    .min(numberOfMatchesComparator.thenComparingInt(player -> player.getAwayOpponentList().size()))
                     .orElseThrow(() -> new Exception("Cant find away player"));
 
             Match match = new Match(i, new Pair(homePlayer, awayPlayer));
